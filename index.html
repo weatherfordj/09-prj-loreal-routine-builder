@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L'Oréal | Smart Routine &amp; Product Advisor</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -26,9 +26,10 @@
       <!-- Category Filter -->
       <div class="search-section">
         <select id="categoryFilter">
-          <option value="" disabled selected>Choose a Category</option>
+          <option value="" selected>All Categories</option>
           <option value="cleanser">Cleansers</option>
           <option value="moisturizer">Moisturizers & Treatments</option>
+          <option value="skincare">Skincare</option>
           <option value="haircare">Haircare</option>
           <option value="makeup">Makeup</option>
           <option value="hair color">Hair Color</option>
@@ -37,6 +38,13 @@
           <option value="suncare">Suncare</option>
           <option value="fragrance">Fragrance</option>
         </select>
+
+        <input
+          id="productSearch"
+          type="text"
+          placeholder="Search by product, brand, or description"
+          autocomplete="off"
+        />
       </div>
 
       <!-- Products Grid -->
@@ -44,10 +52,18 @@
 
       <!-- Selected Products -->
       <div class="selected-products">
-        <h2>Selected Products</h2>
+        <div class="selected-header">
+          <h2>Selected Products</h2>
+          <button id="clearSelections" class="clear-btn" type="button">
+            Clear Selections
+          </button>
+        </div>
+
         <div id="selectedProductsList"></div>
-        <button id="generateRoutine" class="generate-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
+
+        <button id="generateRoutine" class="generate-btn" type="button">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Generate Routine
         </button>
       </div>
 
@@ -62,7 +78,7 @@
             id="userInput"
             name="userInput"
             type="text"
-            placeholder="Ask me about products or routines…"
+            placeholder="Ask me about products or routines..."
             autocomplete="off"
             required
           />
@@ -85,8 +101,6 @@
       </footer>
     </div>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
-    <script src="secrets.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
